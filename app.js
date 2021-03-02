@@ -8,7 +8,7 @@ const postRoutes = require("./routes/posts");
 
 app.use("/posts", postRoutes);
 
-//Routes
+//Route
 app.get("/", (req, res) => {
   res.send("we are home");
 });
