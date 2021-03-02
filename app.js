@@ -1,11 +1,8 @@
 const express = require("express");
+const mongoose = require("mongoose");
+require("dotenv/config");
 
 const app = express();
-
-//Middleware - function that executes when routes are run
-app.use("/posts", () => {
-  console.log("This is middleware running");
-});
 
 //Routes
 app.get("/", (req, res) => {
@@ -15,6 +12,11 @@ app.get("/", (req, res) => {
 app.get("/posts", (req, res) => {
   res.send("we are posts");
 });
+
+//Connect to DB
+mongoose.connect(process.env.DB, { useNewUrlParser: true }, () =>
+  console.log("Connected to Database")
+);
 
 //Boot up the server
 app.listen(3000);
