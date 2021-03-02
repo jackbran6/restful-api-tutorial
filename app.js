@@ -1,16 +1,16 @@
 const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv/config");
-
 const app = express();
+
+//Import Routes
+const postRoutes = require("./routes/posts");
+
+app.use("/posts", postRoutes);
 
 //Routes
 app.get("/", (req, res) => {
   res.send("we are home");
-});
-
-app.get("/posts", (req, res) => {
-  res.send("we are posts");
 });
 
 //Connect to DB
